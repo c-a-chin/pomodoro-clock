@@ -1,12 +1,27 @@
 // colors
 $light-blue: #5ECCFF;
-
+$blue: #0D94FF;
+$black: #1E1E1F;
+$purple: #838AFF;
+$green: #00FF4C;
 
 body {
 	font-family: 'Oswald', sans-serif;
-	background: radial-gradient(white 60%, silver);
+	background:$purple;
+	color: white;
 }
 
+//modal for alert (after timer finishes)
+.modal-content {
+	color: $black;
+	font-size: 1.5rem;
+	background: $green;
+}
+.modal {
+	margin-top: 10%;
+	border: transparent;
+	border-radius: 10px;
+}
 
 /*most/least significant digit counters (msd, lsd)*/
 %counter-style {
@@ -15,29 +30,26 @@ body {
     justify-content: center;
     font-size: 40px;
     background: radial-gradient(white 60%, silver);
+    color: $black;
+    border: 5px solid $black;
 }
 
 .msd-counter {
-  border: 5px solid $light-blue;
+ @extend %counter-style;
   border-radius: 10px 0 0 10px;
-  @extend %counter-style;
   width: 2rem
 }
-
 .lsd-counter {
-  border: 5px solid $light-blue;
-  border-radius: 0 10px 10px 0;
   @extend %counter-style;
+  border-radius: 0 10px 10px 0;
 }
+
 // make contenteditable width larger (easier to click)
 #minute-msd, #minute-lsd, #second-msd, #second-lsd {
 	width: 4rem;
 }
 /*----------------------------------------------*/
 
-#title {
-
-}
 // up/down arrows for time changing
 #minute-up, #minute-down, #second-up, #second-down {
 	background: $light-blue;
@@ -45,31 +57,45 @@ body {
 
 /*content-grid contains everything except title*/
 #content-grid {
-	border: 5px double $light-blue;
+	border: 5px double $black;
 	border-radius: 150px 150px 0 0;
 	padding: 100px 20px 100px 20px;
-	background: rgba(76,75,76,0.3);
+	background: rgba(0,255,76,0.6);
 }
+
+
 /*button-row contains start/pause/stop buttons*/
 #button-row {
-	margin-top: 100px;
+	margin-top: 85px;
+}
+// disabled-button class gets added on disable to add disabled effect
+.disabled-button {
+	opacity: 0.7;
 }
 // start, pause, reset buttons
-#start-button, #pause-button, #reset-button {
+#start-button, #stop-button, #reset-button, #close-button {
 	width: 100%;
 	font-size: 1.5rem;
 	background: $light-blue;
+	color: $black;
+	border-color: $black;
+}
+#start-button, #stop-button, #reset-button, #close-button:hover {
+	cursor: pointer;
 }
 
-/*icons are up/down arrows for setting time*/
+/*icons are up/down arrows , buttons are for setting time*/
 i {
 	font-size: 40px;
 	padding: 0 10px 0 10px;
+	color: $black;
 }
 i:hover {
 	cursor: pointer;
 }
-
+#minute-up, #minute-down, #second-up, #second-down {
+	border-color: $black;
+}
 
 
 /*MEDIA QUERIES*/
@@ -77,5 +103,5 @@ i:hover {
 	/*center grid on page*/
 	#grid-left-margin { margin-left: 6.5%; }
 
-	#start-button, #pause-button, #reset-button { width: 50%; }
+	#start-button, #stop-button, #reset-button { width: 50%; }
 }

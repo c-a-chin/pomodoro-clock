@@ -2,8 +2,7 @@
 var minuteMsd = Number($("#minute-msd").text()),
     minuteLsd = Number($("#minute-lsd").text()),
     secondMsd = Number($("#second-msd").text()),
-    minuteLsd = Number($("#second-lsd").text()),
-    isRunning = false; //to check to timer should be running
+    minuteLsd = Number($("#second-lsd").text());
 
 // buttons to increase/decrease timer will increase/decrease LSD, only change MSD if necessary
 // if LSD gets increased past 9, set to 0 and add 1 to MSD
@@ -209,11 +208,12 @@ $("#second-msd").focusout(function(){
 
 
 
-// START/PAUSE/RESET BUTTONS
-var interval; //declare interval globally so we can access in start/pause functions
+// START/STOP/RESET BUTTONS
+var interval; //declare interval globally so we can access in start/stop functions
 $("#start-button").click(function(){
-	// disable time changing buttons, enable when pause is clicked
+	// disable time changing buttons, enable when stop is clicked
 	$("#reset-button, #start-button, #minute-up, #minute-down, #second-up, #second-down").attr("disabled", "true");
+	$("#reset-button, #start-button, #minute-up, #minute-down, #second-up, #second-down").addClass("disabled-button");
 	// disable contenteditable
 	$("#minute-lsd, #minute-msd, #second-lsd, #second-msd").attr("contenteditable", 'false');
 
@@ -222,20 +222,23 @@ $("#start-button").click(function(){
 		// if timer is up, stop timer and play alarm sound
 		if(minuteMsd == 0 && minuteLsd == 0 &&
 			secondMsd == 0 && secondLsd == 0){
-			$("#pause-button").click();
+			$("#stop-button").click();
 			$("#reset-button").click();
 			// play FOGHORN!!!
 			document.getElementById("alarm-sound").play();
+			// display alert
+			$(".modal").modal('show');
 		} else{
 			// else, count timer down 1 second
 			$("#second-down").click();
 		}
 	}, 1000);
 })
-$("#pause-button").click(function(){
+$("#stop-button").click(function(){
 	clearInterval(interval);
 	// enable buttons/contenteditable
 	$("#reset-button, #start-button, #minute-up, #minute-down, #second-up, #second-down").removeAttr("disabled");
+	$("#reset-button, #start-button, #minute-up, #minute-down, #second-up, #second-down").removeClass("disabled-button");
 	$("#minute-lsd, #minute-msd, #second-lsd, #second-msd").attr("contenteditable", 'true');
 })
 

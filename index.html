@@ -11,16 +11,23 @@
 
 <!-- audio file for alarm noise -->
 <audio id="alarm-sound" src="./sounds/foghorn.mp3"></audio>
+<!-- alert for timer finish -->
+<div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="alertLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" align="center">
+        <p>Your time has elapsed! Did you get a lot of work done?</p>
+        <button type="button" id="close-button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- container for title -->
 <div id="title" class="container text-center mt-5"><h1>Pomodoro Clock</h1></div>
 
 <!-- container for content grid -->
 <div id="content-grid" class="container mt-5">
-	<!-- ROW FOR CLOCK HEADERS -->
-	<!-- <div class="row" align="center"> -->
-
-	<!-- </div> -->
 
 	<!-- ROW FOR CLOCK DISPLAY -->
 	<div id="clock-row" class="row" align="center">
@@ -65,13 +72,13 @@
 	<!-- ROW FOR START/PAUSE/STOP BUTTONS -->
 	<div id="button-row" class="row" align="center">
 		<div class="col-4">
-			<button id="start-button">Start</button>
+			<button id="start-button"><strong>Start</strong></button>
 		</div>
 		<div class="col-4">
-			<button id="pause-button">Pause</button>
+			<button id="stop-button"><strong>Stop</strong></button>
 		</div>
 		<div class="col-4">
-			<button id="reset-button">Reset</button>
+			<button id="reset-button"><strong>Reset</strong></button>
 		</div>
 	</div>
 

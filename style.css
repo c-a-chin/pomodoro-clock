@@ -1,6 +1,19 @@
 body {
   font-family: "Oswald", sans-serif;
-  background: radial-gradient(white 60%, silver);
+  background: #838AFF;
+  color: white;
+}
+
+.modal-content {
+  color: #1E1E1F;
+  font-size: 1.5rem;
+  background: #00FF4C;
+}
+
+.modal {
+  margin-top: 10%;
+  border: transparent;
+  border-radius: 10px;
 }
 
 /*most/least significant digit counters (msd, lsd)*/
@@ -10,16 +23,16 @@ body {
   justify-content: center;
   font-size: 40px;
   background: radial-gradient(white 60%, silver);
+  color: #1E1E1F;
+  border: 5px solid #1E1E1F;
 }
 
 .msd-counter {
-  border: 5px solid #5ECCFF;
   border-radius: 10px 0 0 10px;
   width: 2rem;
 }
 
 .lsd-counter {
-  border: 5px solid #5ECCFF;
   border-radius: 0 10px 10px 0;
 }
 
@@ -34,31 +47,46 @@ body {
 
 /*content-grid contains everything except title*/
 #content-grid {
-  border: 5px double #5ECCFF;
+  border: 5px double #1E1E1F;
   border-radius: 150px 150px 0 0;
   padding: 100px 20px 100px 20px;
-  background: rgba(76, 75, 76, 0.3);
+  background: rgba(0, 255, 76, 0.6);
 }
 
 /*button-row contains start/pause/stop buttons*/
 #button-row {
-  margin-top: 100px;
+  margin-top: 85px;
 }
 
-#start-button, #pause-button, #reset-button {
+.disabled-button {
+  opacity: 0.7;
+}
+
+#start-button, #stop-button, #reset-button, #close-button {
   width: 100%;
   font-size: 1.5rem;
   background: #5ECCFF;
+  color: #1E1E1F;
+  border-color: #1E1E1F;
 }
 
-/*icons are up/down arrows for setting time*/
+#start-button, #stop-button, #reset-button, #close-button:hover {
+  cursor: pointer;
+}
+
+/*icons are up/down arrows , buttons are for setting time*/
 i {
   font-size: 40px;
   padding: 0 10px 0 10px;
+  color: #1E1E1F;
 }
 
 i:hover {
   cursor: pointer;
+}
+
+#minute-up, #minute-down, #second-up, #second-down {
+  border-color: #1E1E1F;
 }
 
 /*MEDIA QUERIES*/
@@ -68,9 +96,9 @@ i:hover {
     margin-left: 6.5%;
   }
 
-  #start-button, #pause-button, #reset-button {
+  #start-button, #stop-button, #reset-button {
     width: 50%;
   }
 }
 
-/*# sourceMappingURL=file:///C:/Users/Cameron/webdev/pomodoro-clock/style.css.map */
+/*# sourceMappingURL=webdev/pomodoro-clock/style.css.map */
