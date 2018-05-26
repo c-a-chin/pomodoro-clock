@@ -4,9 +4,13 @@
 	<title>Pomodoro Clock</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+<!-- audio file for alarm noise -->
+<audio id="alarm-sound" src="./sounds/foghorn.mp3"></audio>
 
 <!-- container for title -->
 <div id="title" class="container text-center mt-5"><h1>Pomodoro Clock</h1></div>
@@ -14,42 +18,45 @@
 <!-- container for content grid -->
 <div id="content-grid" class="container mt-5">
 	<!-- ROW FOR CLOCK HEADERS -->
-	<div class="row" align="center">
-		<div class="col-6"><h3>Minutes</h3></div>
-		<div class="col-6"><h3>Seconds</h3></div>
-		<div class="col-12"><p class="small">Click number to edit manually!</p></div>
-	</div>
+	<!-- <div class="row" align="center"> -->
+
+	<!-- </div> -->
 
 	<!-- ROW FOR CLOCK DISPLAY -->
 	<div id="clock-row" class="row" align="center">
-		<div id="grid-left-margin" class="col-4 col-sm-1 mr-sm-1 mr-md-0 pl-sm-1 pl-md-0"> <!-- col for minute counter buttons, will set left margin to center grid on page -->
-			<i id="minute-up" class="up-arrow fas fa-caret-up"></i><br>
-			<i id="minute-down" class="down-arrow fas fa-caret-down"></i>
+
+		<div class="col-12 col-sm-6 order-1"><h2>Minutes</h2></div>
+		<div class="col-12 col-sm-6 mt-5 mt-sm-0 order-6 order-sm-2"><h2>Seconds</h2></div>
+		<div class="col-12 order-2 order-sm-3"><p class="small">Click number to edit manually!</p></div>
+
+		<div id="grid-left-margin" class="col-4 col-sm-1 mr-sm-1 mr-md-0 pl-sm-1 pl-md-0 order-3 order-sm-4"> <!-- col for minute counter buttons, will set left margin to center grid on page -->
+			<button id="minute-up"><i class="up-arrow fas fa-caret-up"></i></button><br>
+			<button id="minute-down"><i class="down-arrow fas fa-caret-down"></i></button>
 		</div>
 		<!-- end of minute counter buttons -->
 
-		<div class="msd-counter col-4 col-sm-2 ml-sm-3 ml-md-0"> <!-- col for minute counter most significant digit -->
+		<div class="msd-counter col-4 col-sm-2 ml-sm-3 ml-md-0 order-4 order-sm-5"> <!-- col for minute counter most significant digit -->
 			<div contenteditable="true" id="minute-msd">2</div>
 		</div>
 		<!-- end of minte counter MSD -->
 
-		<div class="lsd-counter col-4 col-sm-2 mr-sm-5"> <!-- col for minute counter least significant digit -->
+		<div class="lsd-counter col-4 col-sm-2 mr-sm-5 order-5 order-sm-6"> <!-- col for minute counter least significant digit -->
 			<div contenteditable="true" id="minute-lsd">5</div>
 		</div>
 		<!-- end of minute counter LSD -->
 
-		<div class="col-4 col-sm-1 order-sm-3 mt-5 mt-sm-0 pr-sm-1 pr-md-0"> <!-- col for second counter buttons -->
-			<i id="second-up" class="up-arrow fas fa-caret-up"></i><br>
-			<i id="second-down" class="down-arrow fas fa-caret-down"></i>
+		<div class="col-4 col-sm-1 order-sm-3 pr-sm-1 pr-md-0 order-7 order-sm-9"> <!-- col for second counter buttons -->
+			<button id="second-up"><i class="up-arrow fas fa-caret-up"></i></button><br>
+			<button id="second-down"><i class="down-arrow fas fa-caret-down"></i></button>
 		</div>
 		<!-- end of second counter buttons -->
 
-		<div class="msd-counter col-4 col-sm-2 order-sm-1 mt-5 mt-sm-0"> <!-- col for second counter most significant digit -->
+		<div class="msd-counter col-4 col-sm-2 order-sm-1 order-8 order-sm-7"> <!-- col for second counter most significant digit -->
 			<div contenteditable="true" id="second-msd">0</div>
 		</div>
 		<!-- end of second counter MSD -->
 
-		<div class="lsd-counter col-4 col-sm-2 order-sm-2 mt-5 mt-sm-0"> <!-- col for second counter least significant digit -->
+		<div class="lsd-counter col-4 col-sm-2 order-sm-2 order-9 order-sm-8"> <!-- col for second counter least significant digit -->
 			<div contenteditable="true" id="second-lsd">0</div>
 		</div>
 		<!-- end of second counter LSD -->
@@ -58,16 +65,17 @@
 	<!-- ROW FOR START/PAUSE/STOP BUTTONS -->
 	<div id="button-row" class="row" align="center">
 		<div class="col-4">
-			<button id="start-button" class="btn btn-primary">Start</button>
+			<button id="start-button">Start</button>
 		</div>
 		<div class="col-4">
-			<button id="pause-button" class="btn btn-primary">Pause</button>
+			<button id="pause-button">Pause</button>
 		</div>
 		<div class="col-4">
-			<button id="reset-button" class="btn btn-primary">Reset</button>
+			<button id="reset-button">Reset</button>
 		</div>
 	</div>
-</div>
+
+</div><br>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

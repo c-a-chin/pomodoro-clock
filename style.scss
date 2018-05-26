@@ -1,3 +1,11 @@
+// colors
+$light-blue: #5ECCFF;
+
+
+body {
+	font-family: 'Oswald', sans-serif;
+	background: radial-gradient(white 60%, silver);
+}
 
 
 /*most/least significant digit counters (msd, lsd)*/
@@ -6,18 +14,19 @@
     align-items: center;
     justify-content: center;
     font-size: 40px;
+    background: radial-gradient(white 60%, silver);
 }
 
 .msd-counter {
-  border: 1px solid black;
-  border-radius: 5px 0 0 5px;
+  border: 5px solid $light-blue;
+  border-radius: 10px 0 0 10px;
   @extend %counter-style;
   width: 2rem
 }
 
 .lsd-counter {
-  border: 1px solid black;
-  border-radius: 0 5px 5px 0;
+  border: 5px solid $light-blue;
+  border-radius: 0 10px 10px 0;
   @extend %counter-style;
 }
 // make contenteditable width larger (easier to click)
@@ -29,21 +38,32 @@
 #title {
 
 }
+// up/down arrows for time changing
+#minute-up, #minute-down, #second-up, #second-down {
+	background: $light-blue;
+}
 
 /*content-grid contains everything except title*/
 #content-grid {
-	border: 1px solid black;
+	border: 5px double $light-blue;
 	border-radius: 150px 150px 0 0;
 	padding: 100px 20px 100px 20px;
+	background: rgba(76,75,76,0.3);
 }
 /*button-row contains start/pause/stop buttons*/
 #button-row {
 	margin-top: 100px;
 }
+// start, pause, reset buttons
+#start-button, #pause-button, #reset-button {
+	width: 100%;
+	font-size: 1.5rem;
+	background: $light-blue;
+}
+
 /*icons are up/down arrows for setting time*/
 i {
 	font-size: 40px;
-	border: 1px solid black;
 	padding: 0 10px 0 10px;
 }
 i:hover {
@@ -56,4 +76,6 @@ i:hover {
 @media (min-width: 767px){
 	/*center grid on page*/
 	#grid-left-margin { margin-left: 6.5%; }
+
+	#start-button, #pause-button, #reset-button { width: 50%; }
 }
