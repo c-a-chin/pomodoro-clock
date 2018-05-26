@@ -1,0 +1,59 @@
+
+
+/*most/least significant digit counters (msd, lsd)*/
+%counter-style {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.msd-counter {
+  border: 1px solid black;
+  border-radius: 5px 0 0 5px;
+  @extend %counter-style;
+  width: 2rem
+}
+
+.lsd-counter {
+  border: 1px solid black;
+  border-radius: 0 5px 5px 0;
+  @extend %counter-style;
+}
+// make contenteditable width larger (easier to click)
+#minute-msd, #minute-lsd, #second-msd, #second-lsd {
+	width: 4rem;
+}
+/*----------------------------------------------*/
+
+#title {
+
+}
+
+/*content-grid contains everything except title*/
+#content-grid {
+	border: 1px solid black;
+	border-radius: 150px 150px 0 0;
+	padding: 100px 20px 100px 20px;
+}
+/*button-row contains start/pause/stop buttons*/
+#button-row {
+	margin-top: 100px;
+}
+/*icons are up/down arrows for setting time*/
+i {
+	font-size: 40px;
+	border: 1px solid black;
+	padding: 0 10px 0 10px;
+}
+i:hover {
+	cursor: pointer;
+}
+
+
+
+/*MEDIA QUERIES*/
+@media (min-width: 767px){
+	/*center grid on page*/
+	#grid-left-margin { margin-left: 6.5%; }
+}
